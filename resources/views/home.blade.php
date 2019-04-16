@@ -9,12 +9,21 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
                     You are logged in!
+                    <ul>
+                        <li>
+                            <a href="/marca">marcas</a>
+                        </li>
+                        <li>
+                            <a href="/produto">produtos</a>
+
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

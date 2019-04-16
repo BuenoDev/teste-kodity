@@ -70,6 +70,7 @@ class RegisterController extends Controller
             'type' => isset($data['admin']) ? 1 : 0
         ];
         // dd($userData);
+        // dd($userData);
         return User::create($userData);
     }
 }

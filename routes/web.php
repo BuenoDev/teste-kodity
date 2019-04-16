@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect('/home');
 });
 
 Auth::routes();
@@ -27,24 +28,37 @@ Route::get('/home', 'HomeController@index')->name('home');
 /**
  * Route group com middleware auth para garantir que
  * o usuário esteja autenticado
+ * 
  */
 Route::group([
     'prefix' => 'marca',
     'middleware' => 'auth'
 ], function () {
     Route::get('/','BrandController@index');
-    Route::get('/novo','BrandController@create');
-    Route::get('/{brand}/editar','BrandController@edit');
-    Route::post('/','BrandController@store');
-    Route::put('/{brand}','BrandController@update');
-    Route::delete('/{brand}','BrandController@destroy');
+
+    /**
+     * Define que apenas usuarios de admin poção fazer as operações de
+     * modificação de dados de marcas
+     */
+    Route::group(['middleware' => 'admin'], function () {
+        Route::get('/novo','BrandController@create');
+        Route::get('/{brand}/editar','BrandController@edit');
+        Route::post('/','BrandController@store');
+        Route::put('/{brand}','BrandController@update');
+        Route::delete('/{brand}','BrandController@destroy');        
+    });
 });
 
 Route::group([
     'prefix' => 'produto',
     'middleware'=>'auth'
 ], function () {
-    Route::resource('', 'ProductController');
+    Route::get('/','ProductController@index');
+    Route::get('/novo','ProductController@create');
+    Route::get('/{product}/editar','ProductController@edit');
+    Route::post('/','ProductController@store');
+    Route::put('/{product}','ProductController@update');
+    Route::delete('/{product}','ProductController@destroy');
 });
 
 // Route::get('/marca','BrandController@index');

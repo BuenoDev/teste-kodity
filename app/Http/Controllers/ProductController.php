@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Brand;
 
 class ProductController extends Controller
 {
+    private $abortMessage = 'Apenas o usuário que cadastrou o produto ou o administrador tem acesso';
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +19,7 @@ class ProductController extends Controller
     {
         //
         return view('products.index')->withProducts(Product::all());
+                                     
     }
 
     /**
@@ -27,7 +30,8 @@ class ProductController extends Controller
     public function create()
     {
         //
-        return view('products.create');
+        
+        return view('products.create')->withBrands(Brand::all());;
     }
 
     /**
@@ -41,13 +45,14 @@ class ProductController extends Controller
         //TODO: images
         $product = $request->validate([
             'name'=>['string','min:2','required'],
-            'description' =>  ['string','min:10','required'],            
+            'description' =>  ['string','min:5','required'],
+            'brand_id'=> ['required']            
         ]);
+        
         $product['user_id'] = Auth::user()->id;
-
         Product::create($product);
 
-        return redirect()->back();
+        return redirect('/produto');
     }
 
     /**
@@ -58,7 +63,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        // Mostrar produto com imagem
         abort(404);
     }
 
@@ -71,7 +76,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
-        return view('brands.edit')->withProduct($product);
+        abort_unless(Auth::user()->type == 1 || Auth::user() == $product->user,403,$this->abortMessage);
+
+        return view('products.edit')->withProduct($product)->withBrands(Brand::all());
     }
 
     /**
@@ -84,12 +91,14 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
-        Brand::update($request->validate([
+        abort_unless(Auth::user()->type == 1 || Auth::user() == $product->user,403,$this->abortMessage);
+
+        $product->update($request->validate([
             'name'=>['string','min:2','required'],
             'description' =>  ['string','min:10','required'],
         ]));
 
-        return redirect()->back();
+        return redirect('/produto');
     }
 
     /**
@@ -101,6 +110,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        abort_unless(Auth::user()->type == 1 || Auth::user() == $product->user,403,$this->abortMessage);
+
         $product->delete();
 
         return redirect()->back();

@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('brand_id');            
             $table->string('name');
             $table->text('description');
-            $table->string('path_image');
+            $table->string('path_image')->nullable();
 
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
         });
