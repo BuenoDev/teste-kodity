@@ -40,7 +40,7 @@ class BrandController extends Controller
         //
         $validatedData = $request->validate([
             'name'=>['string','min:2','required'],
-            'description' =>  ['string','min:6','required'],
+            'description' =>  ['string','min:6'],
         ]);
         
         Brand::create($validatedData);
@@ -57,6 +57,7 @@ class BrandController extends Controller
     public function show(Brand $brand)
     {
         //
+        abort(404);
     }
 
     /**

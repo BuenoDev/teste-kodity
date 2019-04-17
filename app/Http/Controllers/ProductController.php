@@ -95,7 +95,7 @@ class ProductController extends Controller
 
         $product->update($request->validate([
             'name'=>['string','min:2','required'],
-            'description' =>  ['string','min:10','required'],
+            'description' =>  ['string','min:10'],
         ]));
 
         return redirect('/produto');
