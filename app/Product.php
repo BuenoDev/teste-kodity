@@ -17,4 +17,9 @@ class Product extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function delete(){
+        if($this->image) Storage::delete('/public/products'.$this->image);
+        return parent::delete();
+    }
 }

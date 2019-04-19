@@ -140,7 +140,7 @@ class ProductController extends Controller
         //
         abort_unless(Auth::user()->type == 1 || Auth::user() == $product->user,403,$this->abortMessage);
 
-        if($product->image) Storage::delete('/public/products'.$product->image);
+        
         $product->delete();
 
         return redirect('/produto');

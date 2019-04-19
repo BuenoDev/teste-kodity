@@ -81,8 +81,7 @@ class ProductApiController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
-        if($product->image) Storage::delete('/public/products'.$product->image);
+        //        
         $product->delete();
     }
 }
