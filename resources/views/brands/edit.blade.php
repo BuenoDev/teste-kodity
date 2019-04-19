@@ -31,6 +31,7 @@
                                 @endif
                         </div>
                         <button type="submit" class="btn btn-primary">Salvar Marca</button>
+                        <a href="/produto" class="btn btn-warning">Voltar</a>
                     </form>
                 </div>
             </div>

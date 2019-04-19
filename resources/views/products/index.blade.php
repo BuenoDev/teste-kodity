@@ -3,34 +3,24 @@
 @section('content')
 <div class="container">
     {{-- filtros --}}
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card text-left">
-                
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <product-filters></product-filters>
-                        </div>
-                        <div class="col-md-6">
-                            <a name="add" id="add" class="btn btn-success" href="/produto/novo" role="button">
-                                Adicionar Produto
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- end card --}}
-        </div>
-        {{-- end col --}}
-    </div>
+    
     {{-- end row --}}
     {{-- tabela --}}
     <div class="row">
         <div class="card text-left col-lg-12">
 
-            <div class="card-body">
-                <h4 class="card-title">Produtos</h4>
+            <div class="card-body row">
+                <div class="col-sm-6 flex">
+                    <h1 class="card-title">Produtos</h1>
+                    <a href="/produto/novo" class="btn btn-circle btn-success "style="margin-left: 30px; margin-top:10px" title="Adicionar novo Produto">
+                        <i class="fa fa-plus" aria-hidden="true" ></i>
+                    </a>
+
+                </div>
+                <div class="col-sm-6">
+                    <product-filters></product-filters>
+
+                </div>
                 <products-table></products-table>
                 {{-- <table class="table">
                     <thead>
@@ -66,6 +56,7 @@
                 </table> --}}
             </div>
         </div>
+        
     </div>
 </div>
 @endsection

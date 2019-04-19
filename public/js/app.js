@@ -1844,6 +1844,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2034,6 +2037,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37498,55 +37508,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", { staticClass: "table" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "tbody",
-      _vm._l(_vm.brands, function(brand) {
-        return _c("tr", { key: brand.id }, [
-          _c("td", { attrs: { scope: "row" } }, [_vm._v(_vm._s(brand.name))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(brand.description))]),
-          _vm._v(" "),
-          _c("td", [
-            _c("div", { staticClass: "btn-group" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: {
-                    href: "produto/" + brand.id + "/editar",
-                    role: "button"
-                  }
-                },
-                [_c("i", { staticClass: "fa fa-edit    " })]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-danger",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteBrand(brand.id)
+  return _c("div", { staticClass: "table-container" }, [
+    _c("table", { staticClass: "table" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.brands, function(brand) {
+          return _c("tr", { key: brand.id }, [
+            _c("td", { attrs: { scope: "row" } }, [_vm._v(_vm._s(brand.name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(brand.description))]),
+            _vm._v(" "),
+            _c("td", [
+              _c("div", { staticClass: "btn-group" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: {
+                      href: "marca/" + brand.id + "/editar",
+                      role: "button"
                     }
-                  }
-                },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-trash",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]
-              )
+                  },
+                  [_c("i", { staticClass: "fa fa-edit    " })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteBrand(brand.id)
+                      }
+                    }
+                  },
+                  [
+                    _c("i", {
+                      staticClass: "fa fa-trash",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                )
+              ])
             ])
           ])
-        ])
-      }),
-      0
-    )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -37754,57 +37766,65 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", { staticClass: "table" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "tbody",
-      _vm._l(_vm.products, function(product) {
-        return _c("tr", { key: product.id }, [
-          _c("td", { attrs: { scope: "row" } }, [_vm._v(_vm._s(product.name))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(product.brand))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(product.description))]),
-          _vm._v(" "),
-          _c("td", [
-            _c("div", { staticClass: "btn-group" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: {
-                    href: "produto/" + product.id + "/editar",
-                    role: "button"
-                  }
-                },
-                [_c("i", { staticClass: "fa fa-edit    " })]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-danger",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteProduct(product.id)
+  return _c("div", { staticClass: "table-container" }, [
+    _c("table", { staticClass: "table" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.products, function(product) {
+          return _c("tr", { key: product.id }, [
+            _c("td", { attrs: { scope: "row" } }, [
+              _c("a", { attrs: { href: "produto/" + product.id + "/show" } }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(product.name) +
+                    "\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(product.brand))]),
+            _vm._v(" "),
+            _c("td", [
+              _c("div", { staticClass: "btn-group" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: {
+                      href: "produto/" + product.id + "/editar",
+                      role: "button"
                     }
-                  }
-                },
-                [
-                  _c("i", {
-                    staticClass: "fa fa-trash",
-                    attrs: { "aria-hidden": "true" }
-                  })
-                ]
-              )
+                  },
+                  [_c("i", { staticClass: "fa fa-edit    " })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteProduct(product.id)
+                      }
+                    }
+                  },
+                  [
+                    _c("i", {
+                      staticClass: "fa fa-trash",
+                      attrs: { "aria-hidden": "true" }
+                    })
+                  ]
+                )
+              ])
             ])
           ])
-        ])
-      }),
-      0
-    )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -37817,8 +37837,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Nome")]),
         _vm._v(" "),
         _c("th", [_vm._v("Marca")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Descrição")]),
         _vm._v(" "),
         _c("th", [_vm._v("Ação")])
       ])
@@ -50074,7 +50092,8 @@ try {
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-} catch (e) {}
+} catch (e) {} // require('materialize-css');
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -50324,15 +50343,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************!*\
   !*** ./resources/js/components/ProductFilters.vue ***!
   \****************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ProductFilters_vue_vue_type_template_id_1cfe5937___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductFilters.vue?vue&type=template&id=1cfe5937& */ "./resources/js/components/ProductFilters.vue?vue&type=template&id=1cfe5937&");
 /* harmony import */ var _ProductFilters_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductFilters.vue?vue&type=script&lang=js& */ "./resources/js/components/ProductFilters.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ProductFilters_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ProductFilters_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50362,7 +50380,7 @@ component.options.__file = "resources/js/components/ProductFilters.vue"
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/ProductFilters.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

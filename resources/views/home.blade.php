@@ -3,30 +3,37 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+        <div class="col-md-4">
+            <a href="/marca">
 
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+                <div class="card text-center hover-shadow" href="/marcas">
+                    <img class="card-img-top" src="/img/establish-unique-brand-personality.jpg" alt="">
+
+                    <div class="card-body">
+                        <h1 class="card-title">
+                            Marcas
+                        </h1>
                     </div>
-                    @endif
-
-                    You are logged in!
-                    <ul>
-                        <li>
-                            <a href="/marca">marcas</a>
-                        </li>
-                        <li>
-                            <a href="/produto">produtos</a>
-
-                        </li>
-                    </ul>
                 </div>
-            </div>
+            </a>
         </div>
-    </div>
+        @if ($hasBrand)
+
+            <div class="col-md-4">
+                <a href="/produto">
+
+                    <div class="card text-center hover-shadow">
+                        <img class="card-img-top" src="/img/product.png" alt="">
+
+                        <div class="card-body">
+                            <h1 class="card-title">
+                                Produtos
+                            </h1>
+                        </div>
+                    </div>
+            </div>
+            </a>
+        </div>
+        @endif
 </div>
 @endsection

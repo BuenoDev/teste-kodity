@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        {{ $errors }}
+
         <div class="row">
             <div class="col-lg-6 offset-3">
                 <div class="card text-left">                
@@ -48,9 +48,9 @@
                             </div>
                             
                             <div class="form-group">
-                              <label for="image_file">Imagem do produto</label>
-                              <input type="file" class="form-control-file" name="image_file" id="image_file" placeholder="" aria-describedby="fileHelpId">
-                              <small id="fileHelpId" class="form-text text-muted">Arquivo</small>
+                              <label for="image">Imagem do produto</label>
+                              <input type="file" class="form-control-file" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+                              
                             </div>
                         
                             @if ($errors->has('image'))

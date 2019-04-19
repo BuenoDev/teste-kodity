@@ -56,6 +56,8 @@ Route::group([
     Route::get('/','ProductController@index');
     Route::get('/novo','ProductController@create');
     Route::get('/{product}/editar','ProductController@edit');
+    Route::get('/{product}/show','ProductController@show');
+    
     Route::post('/','ProductController@store');
     Route::put('/{product}','ProductController@update');
     Route::delete('/{product}','ProductController@destroy');

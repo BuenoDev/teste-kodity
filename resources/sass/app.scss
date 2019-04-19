@@ -8,6 +8,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//Materialize 
+// @import "node_modules/materialize-css/sass/materialize";
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -19,4 +22,39 @@
 .justify-content-center{
   -ms-flex-align: center;
   
+}
+.card-margin{
+  margin-top:150px;
+}
+.hover-shadow:hover{
+  box-shadow: rgba(23, 150, 182, 0.205) 5px 5px;
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+tr:hover{
+  background-color: rgba(121, 121, 121, 0.013);
+}
+
+.table-container{
+  height: 500px;
+  width: 100%;
+  overflow: auto;
 }
