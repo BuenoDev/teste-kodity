@@ -16,7 +16,7 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        abort_unless(Auth::user()->type == 1 , 403);
+        abort_unless(Auth::user()->type == 1 , 403,"Você não possui acesso a esta página");
 
         return $next($request);
     }

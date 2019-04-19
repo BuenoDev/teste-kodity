@@ -2,11 +2,12 @@
 
 @section('content')
     <div class="container">
+        {{ $errors }}
         <div class="row">
             <div class="col-lg-6 offset-3">
                 <div class="card text-left">                
                   <div class="card-body">
-                        <form action="/produto" method="POST">
+                        <form action="/produto" method="POST"  enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                               <label for="name">Nome</label>
@@ -15,6 +16,7 @@
                                      name="name" 
                                      id="name"  
                                      placeholder="Digite o nome" 
+                                     value="{{ old('name') }}"
                                      required>                              
                             </div>
                             @if ($errors->has('name'))
@@ -36,7 +38,7 @@
                                         name="description" 
                                         id="description" 
                                         rows="6" 
-                                        required>
+                                        required>{{ old('description') }}
                                 </textarea>
                                 @if ($errors->has('description'))
                                 <span class="invalid-feedback" role="alert">
@@ -44,6 +46,18 @@
                                 </span>
                                 @endif
                             </div>
+                            
+                            <div class="form-group">
+                              <label for="image_file">Imagem do produto</label>
+                              <input type="file" class="form-control-file" name="image_file" id="image_file" placeholder="" aria-describedby="fileHelpId">
+                              <small id="fileHelpId" class="form-text text-muted">Arquivo</small>
+                            </div>
+                        
+                            @if ($errors->has('image'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('image') }}</strong>
+                            </span>
+                            @endif
                             <button type="submit" class="btn btn-primary">Salvar Produto</button>
                         </form>
                   </div>

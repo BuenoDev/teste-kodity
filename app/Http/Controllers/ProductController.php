@@ -42,12 +42,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         //TODO: images
+        
         $product = $request->validate([
             'name'=>['string','min:2','required'],
             'description' =>  ['string','min:5','required'],
-            'brand_id'=> ['required']            
+            'brand_id'=> ['required'],
+            'image_file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        unset($product['image_file']);
+
+        if($request->hasFile("image_file")){
+            $path = $request->file('image_file')->store('/public/products');
+            $product['path_image'] = explode('/',$path)[2];
+        }
         
         $product['user_id'] = Auth::user()->id;
         Product::create($product);

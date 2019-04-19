@@ -10,6 +10,16 @@
                         <form action="/produto/{{ $product->id }}" method="POST">
                             @csrf
                             @method('PUT')
+                            <div class="row flex">
+                                <p>heu</p>
+                                <img src="{{ isset($product->path_image) ? "/storage/products/".$product->path_image  : "/img/produto-sem-imagem.png" }}" 
+                                    class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" 
+                                    alt=""
+                                    width='300px' 
+                                    height="300px" >
+                                {{-- <img src="/img/produto-sem-imagem.png" class="justify-content-center" alt="" height="300px" width="300px"> --}}
+                                {{-- <img src="/storage/products/XhXaw7zCNbL1r7vGRpzD1IQbCylC89Kb2rsFXLss.jpeg" alt=""> --}}
+                            </div>
                             <div class="form-group">
                               <label for="name">Nome</label>
                               <input value = "{{ $product->name }}"
